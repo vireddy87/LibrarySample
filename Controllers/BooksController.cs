@@ -1,31 +1,66 @@
-﻿using System.Collections.Generic;
+﻿using Library.Repository;
+using Library.Service;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
 
 namespace Library.Controllers
 {
-    [RoutePrefix("api/books")]
+    [System.Web.Mvc.RoutePrefix("api/books")]    
     public class BooksController : ApiController
     {
-        /*
-		The following GET methods are expected on the api/books controller:
+        BooksService booksService = new BooksService();
 
-			1. GET api/books
-				Returns a list of Ids & Titles for all the books in the Resources folder
-				Titles should be the name of the filename, minus the extension.
-				The Id should be unique.
+        public BooksController()
+        { }
+        /// <summary>
+        /// Get all books
+        /// </summary>
+        /// <returns>json books list</returns>
+        public IHttpActionResult Get()
+        {            
+            var books = booksService.GetBookNames(); 
+            if(books == null)
+            {
+                return NotFound();
+            }
+            return Json(books.ToList());
+        }
+        /// <summary>
+        /// Get Word counts per book 
+        /// </summary>
+        /// <param name="Id"></param> bookId 
+        /// <returns></returns>
+        public IHttpActionResult Get(int Id)
+        {
 
-			2. GET api/books/{Id}
-				Returns a list of the most common 10 words (min 5 letters) and how many times they occur in the specified book.
-				When parsing, whitespace, linefeeds and punctiation should be ignored, and words matched case-insensitively (e.g. "the" and "The" and "THE" will be returned as "The"=3)
-				Words should be returned in capital case (e.g. Word), and the list should be sorted in decreasing incidence.
-
-			3. GET api/books/{Id}?query={query}
-				Returns a list of all words which start with the specified string (min 3 letters) and the number of times they occur within the specified book.
-				Case matching should be insensitive.
-
-		The logic for these calls should largely be encapsulated in other classes. This should make it easier to Unit Test those classes
-		to validate the expected behaviour.
-		*/
+           var wordCounts = booksService.GetWordCounts(Id);
+            if (wordCounts != null)
+            {
+              return  Json(wordCounts); 
+            }
+            return  NotFound();
+        }
+        /// <summary>
+        ///  search words get api
+        /// </summary>
+        /// <param name="bookId"></param> Book ID
+        /// <param name="searchQuery"></param> Word to search in the book
+        /// <returns></returns>
+        public IHttpActionResult Get(int Id, [FromUri] string searchQuery)
+        {
+            if (searchQuery.Length >= 3)
+            {
+                var wordCounts = booksService.SearchWordCounts(Id, searchQuery);
+                if (wordCounts == null || wordCounts.Count() == 0)
+                {
+                    return NotFound();
+                }
+                return Json(wordCounts);
+            }
+            else
+                return StatusCode(HttpStatusCode.LengthRequired);                
+            
+        }
     }
 }

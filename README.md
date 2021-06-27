@@ -4,12 +4,12 @@
 Coding Sample based around a real-world Library; the books within it, and the words within those.
 This uses .NET/WebAPI and ES6, and provides a skeleton for candidates to fill in with their suggestions for the implementation.
 
-* Requirements are below
+* These requirements (as a PDF) - https://github.com/RichTeaTime/LibrarySample/raw/main/README%20-%20Library.pdf
 * Walkthrough of a sample solution - https://youtu.be/mKYs4dp-2Bk
 
 To assist us in understanding the technical experience of candidates, we ask that you *fill in the blanks* of the simple WebAPI and ES6 project that accompanies this document. This will involve creating the architecture and implementation of both Frontend and Backend projects.
 
-The WebAPI project uses .NET Framework and C# and iisexpress to minimise dependencies on your software environment. The UI code is written using ES6, to avoid the need to compile Typescript. **Candidates should try to avoid adding any additional dependencies**
+The WebAPI project uses .NET Framework and C# and iisexpress to minimise dependencies on your software environment. The UI code is written using ES6, to avoid the need to compile Typescript.
 
 Please do not add any further external dependencies to your solution.
 
@@ -21,7 +21,7 @@ Please do not add any further external dependencies to your solution.
  
     * The words are returned as a list of strings, from “GET /api/books/{id}”.
 
-    * A word is defined as a sequence of non-whitespace, non-punctuation, non-special characters, we don't include words shorter than 5 letters in the top-10.
+    * A word is defined as a sequence of non-whitespace, non-punctuation, non-special characters, we discard words shorter than 5 letters.
 
     * Case-matching is insensitive, and the top 10 words should be returned in Capital Case (e.g. “Word”)
 
@@ -31,10 +31,9 @@ Please do not add any further external dependencies to your solution.
 
     * The logic encapsulated by these calls should be supported and verified by at least one unit test.
 
-**_NOTE:_ Candidates should prioritise good architecture, then performance over memory. Where possible, data should be ‘lazy loaded’ once, then retained for future requests.**
+**NOTE:** Candidates should prioritise good architecture, then performance over memory. Where possible, data should be ‘lazy loaded’ once, then retained for future requests.
 
-**_NOTE:_ For this task, candidates can assume that the list of books - and the contents of each book - will not change for the duration of the user session.**
-
+  
 
 ### The UI calls the WebAPI API detailed above:
 1. To retrieve the book titles, these are displayed to the user as HTML DOM elements added to the document tree.

@@ -1,1 +1,116 @@
-﻿
+﻿body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+.container {
+    padding: 0px;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    height:70%;
+    overflow-y: scroll;
+    overflow-x:auto;
+}
+
+
+.leftsection {
+    flex: 35%;
+    padding: 15px 0;
+    padding-left: 12px;
+}
+
+    .leftsection h2 {
+        padding-left: 8px;
+        background-color: lightblue;
+        font-size: 20px;
+        width: 250px;
+    }
+
+.rightsection {
+    flex: 65%;
+    padding: 15px;
+}
+ .rightsection td {
+    font-size: 20px;
+    width: 250px;
+}
+    .rightsection span {
+        background-color: lightblue;
+        font-size: 20px;
+        width: 250px;
+        vertical-align:top;
+    }
+
+.searchcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-left: none;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+    .searchcontent  h2 {
+        background-color: lightblue;
+        font-size: 20px;
+        width:  max-content;
+    }
+#searchBar {
+
+    font-size: 18px;
+    padding: 11px;
+    border: 1px solid #ddd;
+}
+
+#btnGo {
+ 
+    font-size: 18px;
+  
+    top: 7px;
+    right: 15px;
+    content: '🔍';
+}
+#searchBar {
+
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid #eaeaea;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+
+
+#availablebooks {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+#availablebooks td a {
+    padding: 12px;
+    text-decoration: underline;
+    color: black;
+    display: block
+}
+
+    #availablebooks td a:hover {
+        background-color: #7b62fd;
+    }
+
+#container {
+    width: 200px; height: 10px; overflow-y: scroll;
+}
