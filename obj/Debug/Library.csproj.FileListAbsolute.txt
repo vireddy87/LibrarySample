@@ -141,3 +141,4 @@ C:\tech\Nlyte\LibrarySample\bin\nunit.engine.dll
 C:\tech\Nlyte\LibrarySample\bin\nunit.engine.api.dll
 C:\tech\Nlyte\LibrarySample\bin\nunit.engine.core.dll
 C:\tech\Nlyte\LibrarySample\bin\testcentric.engine.metadata.dll
+C:\tech\Nlyte\LibrarySample\obj\Debug\Library.csproj.AssemblyReference.cache

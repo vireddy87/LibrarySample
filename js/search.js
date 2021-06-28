@@ -10,8 +10,6 @@ function runSearch() {
         return false;
     }
     else {
-       // bookId = document.getElementById("bookId").value;
-        //bookId =$("bookId").value;
         var bookId = $('#bookId').val();
         var searchUri = uri + '/' + bookId + '?searchQuery=' + query;
        
